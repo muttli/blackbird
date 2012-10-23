@@ -12,8 +12,8 @@
 
       <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-      <link rel="stylesheet" href="/assets/css/normalize.css">
-      <link rel="stylesheet" href="/assets/css/main.css">
+      <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap-responsive.min.css">
       <script src="js/vendor/modernizr-2.6.1.min.js"></script>
   </head>
   <body>
@@ -22,13 +22,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <?php
+    <div class="container">
+      <?php
 
-    if (file_exists(get_include_path().$yield)) {
-      require_once($yield);
-    }
+      if (file_exists(get_include_path().$yield)) {
+        require_once($yield);
+      }
 
-    ?>
+      ?>
+    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
