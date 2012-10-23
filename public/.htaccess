@@ -1,0 +1,20 @@
+Options +FollowSymLinks -Indexes -MultiViews
+IndexIgnore */*
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	Options +FollowSymlinks -MultiViews
+
+	RewriteCond %{REQUEST_URI} ^/assets
+	RewriteRule . - [S=10]
+
+	RewriteRule ^assets/(.*)$ /application/views/assets/$1 [L]
+
+	# Protect application and system files from being viewed
+	RewriteRule ^(?:application|modules|system)\b.* /index.php/$0 [L]
+
+	# Allow any files or directories that exist to be displayed directly
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	# Rewrite all other URLs to index.php/URL
+	RewriteRule .* /index.php/$0 [PT]
+</IfModule>
