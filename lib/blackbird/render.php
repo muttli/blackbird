@@ -23,6 +23,8 @@ class render extends Blackbird {
       $$key = $value;		
     }
 
+    if(!$_GET['format']) $_GET['format'] = 'html';
+
     #define view path based on controller and action
     $view_path = view.self::$controller."/".self::$action.".".$_GET['format'].".php";
 

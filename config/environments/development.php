@@ -9,6 +9,9 @@
   define('database_default_password', '');
   define('database_default_database', '');
 
+  # Debugging
+  define('debugging', false);
+
   # Error handling
   define('error_reporting', true);
   define('error_404', 'error/404');
