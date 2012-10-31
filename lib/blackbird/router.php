@@ -66,7 +66,7 @@ class router extends Blackbird {
     if(!$route_found) self::set_params(self::$paths['404']);
   }
 
-  private function analyse($url, $path) {
+  private static function analyse($url, $path) {
     
     # If first part doesnt match, return false and continue to next route
     if(count($path[0]) == 0) return false;
@@ -102,7 +102,7 @@ class router extends Blackbird {
     return false;
   }
 
-  public function set_params($route) {
+  public static function set_params($route) {
     $params = explode('/', $route['to']);
 
     if(strstr($params[1], '.')) {
